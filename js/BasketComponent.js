@@ -10,7 +10,8 @@ class BasketComponent {
     }
     //Sepetteki Her Değişiklik yapıldığında burası çalışır ve önyüzde etki ettiği her yeri günceller
     ReRender() {
-        var totalAmount = 0.00;
+        var totalAmount = 0.0;
+        //console.log(totalAmount)
         var basketList = document.getElementById("basket-list");//sepet listesi
         basketList.innerHTML = "";
 
@@ -21,7 +22,9 @@ class BasketComponent {
         if (selecteds.length > 0) {//eğer sepeti doluysa
             selecteds.map((item) => {
                 var product = this.GetProduct(item.productId)
-                totalAmount += (parseFloat(item.count) * parseFloat(product.ListPrice))
+                var count = parseFloat(item.count)
+                var price = parseFloat(product.ListPrice.replace(/,/g,"."))
+                totalAmount += (count * price)
                 basketList.appendChild(new BasketItemComponent(product, item.count))
             })
             document.getElementsByClassName("approve")[0].style.display = "inline";
@@ -211,9 +214,12 @@ class BasketItemComponent {
         return center;
     }
     CreateRight(_price, _count) {
+        var price = parseFloat(_price.toString().replace(/,/g,"."))
+        var count = parseFloat(_count)
+        //   _price = parseFloat((_price+"").replace(/,/g),".")
         let right = document.createElement("div");
         right.className = "right";
-        right.innerText = _price + " x " + _count + " = " + (parseFloat(_price) * parseFloat(_count)) + " TL";
+        right.innerText = price + " x " + count + " = " + (price * count) + " TL";
         return right;
     }
 }

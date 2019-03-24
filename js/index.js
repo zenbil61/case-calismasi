@@ -22,6 +22,8 @@ var method = {
         //Dosyadan verileri okur
         Helper.loadJSON("store/menuData.json", (response) => {
             let categories = response.d.ResultSet;
+        //    categories.map((item)=> item.Products.map((pItem)=> pItem.ListPrice == pItem.ListPrice.replace(/,/g,".") ));
+            
             Helper.LocalSet("categories", categories)
 
             if(Helper.LocalGet("selectedProducts") == null)//for exception

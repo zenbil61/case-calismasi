@@ -4,6 +4,7 @@
 
 
 body {
+  background: #e6e6e6;
   font-family: Arial, Helvetica, sans-serif;
   padding: 0;
   margin: 0;
@@ -39,6 +40,7 @@ main {
     margin: 0;
   }
   .category {
+    background: white;
     border: 2px solid #e6e6e6;
     border-radius: 3px;
     margin: 10px 0px;
@@ -69,7 +71,8 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #e6e6e6;
+  background: $footer-bgcolor;
+  border-top:1px solid #dedede;
   .footer-content {
     line-height: $footer-height;
     position: relative;
@@ -88,7 +91,12 @@ footer {
 
 
 .container {
-  padding: 0px 15% !important;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  //padding: 0px 15% !important;
 }
 
 
