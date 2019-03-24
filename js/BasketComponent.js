@@ -6,25 +6,33 @@ class BasketComponent {
 
     // Sepetimizi Günceller
     UpdateBasket(_selecteds) {
-        Helper.LocalSet("SelectedProducts", _selecteds)
+        Helper.LocalSet("selectedProducts", _selecteds)
     }
     //Sepetteki Her Değişiklik yapıldığında burası çalışır ve önyüzde etki ettiği her yeri günceller
     ReRender() {
-
-        var basketList = document.getElementById("basket-list");//sep
+        var totalAmount = 0.00;
+        var basketList = document.getElementById("basket-list");//sepet listesi
         basketList.innerHTML = "";
 
-        let selecteds = this.GetSelectedProducts();
-        var totalAmount = 0.00;
+        let selecteds = this.GetSelectedProducts(); //sepetteki ürünleri getir
+        if (selecteds == null) // for exception
+            selecteds = []
 
-        selecteds.map((item) => {
-            var product = this.GetProduct(item.productId)
-            totalAmount += (parseFloat(item.count) * parseFloat(product.ListPrice))
-
-            basketList.appendChild(new BasketItemComponent(product, item.count))
-
-        })
-
+        if (selecteds.length > 0) {//eğer sepeti doluysa
+            selecteds.map((item) => {
+                var product = this.GetProduct(item.productId)
+                totalAmount += (parseFloat(item.count) * parseFloat(product.ListPrice))
+                basketList.appendChild(new BasketItemComponent(product, item.count))
+            })
+            document.getElementsByClassName("approve")[0].style.display = "inline";
+        }
+        else { //sepet boşsa 
+            let empty = document.createElement("h3");
+            empty.innerText = "Sepetiniz Boş Lütfen Ürün Ekleyin"
+            empty.style.color = "#dedede"
+            basketList.appendChild(empty)
+            document.getElementsByClassName("approve")[0].style.display = "none";
+        }
         //Tutarları Güncelleme
         var amountsBox = document.getElementsByClassName("amount");
         for (var i = 0; i < amountsBox.length; i++) {
@@ -45,7 +53,8 @@ class BasketComponent {
             }
         })
 
-        if (!isCheck) selecteds.push(_item)
+        if (!isCheck)
+            selecteds.push(_item)
 
         this.UpdateBasket(selecteds);
         this.ReRender();
@@ -63,7 +72,6 @@ class BasketComponent {
             }
         }
 
-
         this.UpdateBasket(selecteds);
         this.ReRender();
     }
@@ -77,7 +85,7 @@ class BasketComponent {
                 break;
             }
         }
-        Helper.LocalSet("SelectedProducts", selecteds);
+        this.UpdateBasket(selecteds)
         this.ReRender();
     }
     //Sepetteki Ürün Sayısını azaltır
@@ -93,13 +101,15 @@ class BasketComponent {
 
             }
         }
-        Helper.LocalSet("SelectedProducts", selecteds);
+
+        this.UpdateBasket(selecteds)
         this.ReRender();
     }
     //Sepetteki ürün id ve sayılarını döndürür
     GetSelectedProducts() {
-        return Helper.LocalGet("SelectedProducts");
+        return Helper.LocalGet("selectedProducts");
     }
+
     //productid verilerek menuData.json içerisindeki ürünü bulur ve döndürür
     GetProduct(_productId) {
         var isCheck = false;

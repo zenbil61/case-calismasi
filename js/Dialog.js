@@ -1,9 +1,7 @@
 
 /**
- * @param data.id - Dialog Oluşturulurken verilen id html kısmındaki dialog id'si dir
+ * @param data.id - Dialog Oluşturulurken verilen id html kısmındaki dialog id'si
  */
-
-
 class Dialog {
 
   constructor(data) {

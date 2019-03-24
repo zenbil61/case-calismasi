@@ -1,0 +1,210 @@
+/** Header Styles **/
+/** Header Styles **/
+/** Footer Styles **/
+/** Footer Styles **/
+/** Product Styles **/
+/** Product Styles **/
+/** Header Styles **/
+/** Header Styles **/
+/** Footer Styles **/
+/** Footer Styles **/
+/** Product Styles **/
+/** Product Styles **/
+.btn-add {
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  border: 0px;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  background: green; }
+
+.btn-remove {
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  border: 0px;
+  margin-left: 10px;
+  border: 0;
+  color: white;
+  font-weight: bold;
+  background: red; }
+
+.btn-delete {
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  border: 0px;
+  color: red;
+  margin-right: 10px;
+  padding: 5px 7px; }
+
+.btn-basket {
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  border: 0px;
+  border: 2px solid red;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: red;
+  color: white; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0; }
+
+header {
+  left: 0;
+  top: 0;
+  right: 0;
+  position: fixed; }
+  header nav {
+    height: 50px;
+    background: blue; }
+    header nav input {
+      padding: 0px 20px;
+      height: 30px;
+      margin: 10px 0px;
+      border: 0px;
+      border-radius: 10px;
+      width: 100%; }
+
+main {
+  position: fixed;
+  top: 50px;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  padding: 3px; }
+  main h4 {
+    margin: 0; }
+  main .category {
+    border: 2px solid #e6e6e6;
+    border-radius: 3px;
+    margin: 10px 0px;
+    padding: 10px; }
+    main .category .product-list .product {
+      margin: 10px 0px;
+      display: flex; }
+      main .category .product-list .product .product-left {
+        width: 90px; }
+      main .category .product-list .product .product-center {
+        flex: 1; }
+      main .category .product-list .product .product-right {
+        width: 50px; }
+
+footer {
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #e6e6e6; }
+  footer .footer-content {
+    line-height: 50px;
+    position: relative;
+    display: flex; }
+    footer .footer-content .total {
+      flex: 1;
+      font-weight: bold;
+      font-size: 18px; }
+    footer .footer-content .view {
+      text-align: right;
+      width: 150px; }
+
+.container {
+  padding: 0px 15% !important; }
+
+.count-input {
+  width: 30px;
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px;
+  border: 1px solid #bebebe; }
+
+.description {
+  font-size: 11px;
+  color: #696969; }
+
+.dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+  .dialog .overlay {
+    position: absolute;
+    background: black;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; }
+  .dialog .dialog-content {
+    min-height: 350px;
+    overflow: auto;
+    z-index: 99;
+    background: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 15px; }
+  .dialog .dialog-header {
+    margin-top: 50px;
+    border-bottom: 1px solid #e6e6e6;
+    z-index: 99;
+    background: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 15px; }
+    .dialog .dialog-header .title {
+      font-size: 20px;
+      font-weight: bold; }
+  .dialog .dialog-footer {
+    text-align: right;
+    z-index: 99;
+    background: white;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 15px; }
+    .dialog .dialog-footer .btn-dialog {
+      cursor: pointer;
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-weight: 500;
+      border-radius: 5px; }
+    .dialog .dialog-footer .btn-dialog.close {
+      background: red;
+      color: white; }
+    .dialog .dialog-footer .btn-dialog.approve {
+      background: green;
+      color: white; }
+
+.basket {
+  display: flex;
+  margin-bottom: 10px; }
+  .basket .left {
+    line-height: 50px;
+    width: 150px; }
+  .basket .image {
+    width: 50px;
+    height: 50px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .basket .center {
+    background: #e6e6e6;
+    flex: 1;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    max-height: 50px; }
+  .basket .right {
+    font-size: 12px;
+    width: 120px;
+    padding: 0px 20px;
+    line-height: 50px; }

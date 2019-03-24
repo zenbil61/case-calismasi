@@ -33,7 +33,7 @@ class CategoryComponent {
         }
     }
 
-    //Kategori Listesi verilir ve verilen listeye göre değişiklikleri ön yüze yansıtır.
+    //Kategori Listesi verilir ve verilen listeye göre değişiklikleri ön yüze yansı
     ReRender(_categories) {
         this.element.innerHTML = "";
 

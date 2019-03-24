@@ -1,10 +1,9 @@
 
 let categoryElement = document.getElementById("category-list");//Kategoriler buranın altında listelecek
 
-var category =  new CategoryComponent(categoryElement);;
-var basket = new BasketComponent();
-var basketDialog = new Dialog({id:"basket-dialog"})
-
+var category = null;
+var basket = null;
+var basketDialog = null;
 
 /**
  * @summary method : Önyüzden (Button Click,OnChange vs..) gibi etkileşime geçilecek kısım
@@ -13,11 +12,10 @@ var basketDialog = new Dialog({id:"basket-dialog"})
  * @method AddBasket    - Sepete Yeni Ürün Eklemeye yarar
  * @method UpdateBasket - Sepetteki Ürünün sayısıyla ilgili değişikliği yansıtır
  * @method DeleteBasket - Sepetteki Ürünü siler
- * @method ShowPopup    - Sepeti Popup'ını açar
+ * @method ShowPopup    - Sepet Popup'ını açar
  * @method ClosePopup   - Sepet Popup'ını kapatır
  * @method Search       - Arama Yapmak için kullanılır (Product DisplayName ve Descriptiona Göre Arar)
  */
-
 
 var method = {
     OnLoad: () => {
@@ -25,6 +23,13 @@ var method = {
         Helper.loadJSON("store/menuData.json", (response) => {
             let categories = response.d.ResultSet;
             Helper.LocalSet("categories", categories)
+
+            if(Helper.LocalGet("selectedProducts") == null)//for exception
+               Helper.LocalSet("selectedProducts", [])
+
+            category = new CategoryComponent(categoryElement);;
+            basket = new BasketComponent();
+            basketDialog = new Dialog({ id: "basket-dialog" })
         })
     },
     AddBasket: (_productId) => {
@@ -53,8 +58,14 @@ var method = {
     ShowPopup: () => basketDialog.Show()
     ,
     ClosePopup: () => basketDialog.Close()
+    ,
+    ApprovePopup:() =>{
+        alert("Siparişiniz Onaylandı");
+        basket.UpdateBasket([]);
+        basket.ReRender();
+        method.ClosePopup();
+    } 
 }
-
 
 //Onload Methodu
 method.OnLoad();
