@@ -1,5 +1,5 @@
 <h3>#PROJEYİ ÇALIŞTIRMA</h3>
-Komut satırı ile proje içerisindeyken npm install dedikten sonra gulp watch diyerek projeyi ayağa kaldırabilirsiniz
+Komut satırı ile proje içerisindeyken  npm install dedikten sonra gulp watch diyerek projeyi ayağa kaldırabilirsiniz
 
 <h3>#KULLANILAN TEKNOLOJILER</h3>
 Html,<br/>
