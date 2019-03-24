@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="container">
+                <input onkeyup="method.Search(this)" type="text" placeholder="Buradan Arama Yapın" />
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="category-list">
+
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+
+                <div class="total">
+                    Toplam Tutar :
+                    <span class="amount"> 0</span>
+                    TL
+                </div>
+                <div class="view">
+                    <a class="btn-basket" onclick="method.ShowPopup()"> Sepeti Gör</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+          <!-- <div class="right-total">3 x 18,66</div>-->
+              <!-- <div class="basket">
+                    <div class="left">
+                        <input type="text" class="count-input" value="5">
+                        <button class="btn-add">+</button>
+                        <button class="btn-remove">-</button>
+                    </div>
+                    <img src="yemek.Jpeg" class="left-image" />
+                    <div class="right">22</div>
+                </div>
+
+                <div class="basket">
+                    <div class="left">
+                        <input type="text" class="count-input" value="5">
+                        <button class="btn-add">+</button>
+                        <button class="btn-remove">-</button>
+                    </div>
+                    <img src="yemek.Jpeg" class="left-image" />
+                    <div class="right">22</div>
+                  
+                </div>
+                <div class="basket">
+                    <div class="left">
+                        <input type="text" class="count-input" value="5">
+                        <button class="btn-add">+</button>
+                        <button class="btn-remove">-</button>
+                    </div>
+                    <img src="yemek.Jpeg" class="left-image" />
+                    <div class="right">22</div>
+                </div>
+
+            --> 
+
+    <div id="basket-dialog" class="dialog" style="display:none;">
+        <div class="overlay"></div>
+        <div class="dialog-header">
+            <div class="title">Sepeti Onayla Toplam Tutar : <span class="amount"> 0</span> TL</div>
+        </div>
+        <div class="dialog-content">
+            <div id="basket-list">
+           
+            </div>
+        </div>
+        <div class="dialog-footer">
+            <a class="btn-dialog approve"> Sepeti Onayla </a>
+            <a class="btn-dialog close" onclick="method.ClosePopup()"> İptal </a>
+        </div>
+    </div>
+    <script src="js/Helper.js"></script>
+    <script src="js/CategoryComponent.js"></script>
+    <script src="js/BasketComponent.js"></script>
+    <script src="js/Dialog.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

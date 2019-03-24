@@ -1,0 +1,186 @@
+@import "./variable.scss";
+@import "./mixin.scss";
+@import "./button.scss";
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+header {
+  left: 0;
+  top: 0;
+  right: 0;
+  position: fixed;
+
+  nav {
+    height: $header-height;
+    background: $header-bgcolor;
+    input {
+      padding: 0px 20px;
+      height: 30px;
+      margin: 10px 0px;
+      border: 0px;
+      border-radius: 10px;
+      width: 100%;
+    }
+  }
+}
+main {
+  position: fixed;
+  top: $header-height;
+  bottom: $footer-height;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  padding: 3px; //borderdan sebep
+  h4 {
+    margin: 0;
+  }
+  .category {
+    border: 2px solid #e6e6e6;
+    border-radius: 3px;
+    margin: 10px 0px;
+    padding: 10px;
+    //position: relative;
+
+    .product-list {
+      .product {
+        margin: 10px 0px;
+        //position: relative;
+        display: flex;
+        .product-left {
+          width: 90px;
+        }
+        .product-center {
+          flex: 1;
+        }
+        .product-right {
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+footer {
+  height: $footer-height;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #e6e6e6;
+  .footer-content {
+    line-height: $footer-height;
+    position: relative;
+    display: flex;
+    .total {
+      flex: 1;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .view {
+      text-align: right;
+      width: 150px;
+    }
+  }
+}
+
+
+.container {
+  padding: 0px 15% !important;
+}
+
+
+
+.count-input {
+  width: 30px;
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px;
+  border: 1px solid #bebebe;
+}
+
+.description {
+  font-size: 11px;
+  color: #696969;
+}
+
+.dialog {
+  position: fixed;
+  @include full-fixed();
+
+  .overlay {
+    position: absolute;
+    background: black;
+    opacity: 0.7;
+    @include full-fixed();
+    z-index: -1;
+  }
+  .dialog-content {
+    min-height: 350px;
+    overflow: auto;
+    @include dialog-content();
+  }
+  .dialog-header {
+    margin-top: 50px;
+    border-bottom: 1px solid #e6e6e6;
+    @include dialog-content();
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  .dialog-footer {
+    text-align: right;
+    @include dialog-content();
+
+    .btn-dialog {
+      cursor: pointer;
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-weight: 500;
+      border-radius: 5px;
+    }
+    .btn-dialog.close {
+      background: red;
+      color: white;
+    }
+    .btn-dialog.approve {
+      background: green;
+      color: white;
+    }
+  }
+}
+
+
+$basket-item-height:50px;
+.basket {
+  display: flex;
+  margin-bottom: 10px;
+  .left {
+    line-height: $basket-item-height;
+    width: 150px;
+  }
+  .image {
+    width: 50px;
+    height: $basket-item-height;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .center {
+    background: #e6e6e6;
+    flex: 1;
+    padding: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    max-height: $basket-item-height;
+  }
+  .right {
+    font-size: 12px;
+    width: 120px;
+    padding: 0px 20px;
+    line-height: $basket-item-height;
+  }
+}
